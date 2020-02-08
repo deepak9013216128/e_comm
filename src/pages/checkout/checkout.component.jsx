@@ -4,44 +4,48 @@ import {createStructuredSelector} from 'reselect';
 
 import {selectCartItems,selectCartTotal} from '../../redux/cart/cart.selectors';
 import CheckoutItem from '../../component/checkout-item/checkout-item.component';
+
+import {CheckoutPageContainer,
+        ChecoutHeader,
+        HeaderBlock,
+        Total,
+        TestWarning,} from './checkout.styles'; 
 import StripeCheckoutButton from '../../component/stripe-button/stripe-button.component';
 
-import './checkout.style.scss'; 
-
 const Checkout = ({cartItems,total})=> (
-    <div className='checkout-page'>
-        <div className='checkout-header' >
-            <div className='header-block'>
+    <CheckoutPageContainer>
+        <ChecoutHeader >
+            <HeaderBlock>
                 <span>Product</span>
-            </div>
-            <div className='header-block'>
+            </HeaderBlock>
+            <HeaderBlock>
                 <span>Descriptions</span>
-            </div>
-            <div className='header-block'>
+            </HeaderBlock>
+            <HeaderBlock>
                 <span>Quantity</span>
-            </div>
-            <div className='header-block'>
+            </HeaderBlock>
+            <HeaderBlock>
                 <span>Price</span>
-            </div>
-            <div className='header-block'>
+            </HeaderBlock>
+            <HeaderBlock>
                 <span>Remove</span>
-            </div>
-        </div>
+            </HeaderBlock>
+        </ChecoutHeader>
         {
             cartItems.map(cartItem=>
             <CheckoutItem key={cartItem.id} cartItem={cartItem} />
             )
         }
-        <div className='total'>
+        <Total>
             <span>TOTAL: {total}</span>
-        </div>
-        <div className='test-warring' >
+        </Total>
+        <TestWarning>
             *Please use following test credit card for payment*
             <br />
             4242 4242 4242 - Exp: 1/21 - Cvv: 123
-        </div>
+        </TestWarning>
         <StripeCheckoutButton price={total} />
-    </div>
+    </CheckoutPageContainer>
 )
 
 const mapStateToProops = createStructuredSelector({
