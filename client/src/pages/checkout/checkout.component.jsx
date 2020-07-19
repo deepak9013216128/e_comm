@@ -6,10 +6,10 @@ import {selectCartItems,selectCartTotal} from '../../redux/cart/cart.selectors';
 import CheckoutItem from '../../component/checkout-item/checkout-item.component';
 
 import {CheckoutPageContainer,
-        ChecoutHeader,
-        HeaderBlock,
-        Total,
-        TestWarning,} from './checkout.styles'; 
+    ChecoutHeader,
+    HeaderBlock,
+    Total,
+    TestWarning,} from './checkout.styles'; 
 import StripeCheckoutButton from '../../component/stripe-button/stripe-button.component';
 
 const Checkout = ({cartItems,total})=> (

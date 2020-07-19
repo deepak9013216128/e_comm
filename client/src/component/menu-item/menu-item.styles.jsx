@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const MenuItemContainer = styled.div`
     min-width: 30%;
-    height: 240px;
+    height: ${({size}) => size?'380px':'240px'};
     flex: 1 1 auto;
     display: flex;
     align-items: center;
@@ -11,10 +11,6 @@ export const MenuItemContainer = styled.div`
     margin: 0 7.5px 15px;
     overflow: hidden;
 
-    &.large {
-        height: 380px;
-    }
-
     &:first-child {
     margin-right: 7.5px;
     }
@@ -22,6 +18,10 @@ export const MenuItemContainer = styled.div`
     &:last-child {
     margin-left: 7.5px;
     }
+
+    @media screen and (max-width: 800px) {
+		height: 200px;
+	}
 
     &:hover {
         cursor: pointer;
